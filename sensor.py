@@ -8,13 +8,13 @@ DEVICE_LABEL = "week10"  # Put your device label here
 VARIABLE_LABEL_1 = "temperatur"  # Put your first variable label here
 VARIABLE_LABEL_2 = "kelembapan"  # Put your second variable label here
 
+DHT = Adafruit_DHT.DHT11
+GPIO_DHT = 4
 
 def build_payload(variable_1, variable_2):
     # Creates two random values for sending data
-
-    sensor = Adafruit_DHT.DHT11
-    pin = 4
-    kelembapan, temperatur = Adafruit_DHT.read_retry(sensor, pin)
+    
+    kelembapan, temperatur = Adafruit_DHT.read_retry(DHT, GPIO_DHT)
     
     value_1 = temperatur
     value_2 = kelembapan
